@@ -1,0 +1,146 @@
+---
+import { Image } from "astro:assets";
+import fileAndFolderIcon from "../assets/files-and-folder.svg";
+import dataStorageIcon from "../assets/data-storage.svg";
+
+import Features from "./Features.astro";
+import FileConversion from "./File-Conversion.astro";
+import Footer from "./Footer.astro";
+---
+
+<main class="volaryss">
+    <section class="volaryss__main">
+        <span class="volaryss__subtitle">Tu bóveda digital segura</span>
+
+        <h2 class="volaryss__title">
+            Almacenamiento <span class="volaryss__title--highlight"
+                >seguro y flexible</span
+            >
+        </h2>
+
+        <p class="volaryss__description">
+            Guarda tus archivos en local o en la nube, convierte formatos al
+            instante y accede desde cualquier lugar con total seguridad.
+        </p>
+
+        <div class="volaryss__actions">
+            <button class="volaryss__button">Comenzar Gratis</button>
+        </div>
+
+        <div class="volaryss__decoration">
+            <Image
+                src={fileAndFolderIcon}
+                alt="Volaryss decoration icon"
+                loading="eager"
+                width={150}
+                height={150}
+            />
+        </div>
+        <div class="volaryss__decoration-1">
+            <Image
+                src={dataStorageIcon}
+                alt="Volaryss decoration icon"
+                loading="eager"
+                width={150}
+                height={150}
+            />
+        </div>
+    </section>
+    <Features />
+    <FileConversion />
+    <Footer />
+</main>
+
+<style>
+    .volaryss {
+        background: linear-gradient(#f1f7ff, #fff);
+        font-family:
+            "Poppins",
+            system-ui,
+            -apple-system,
+            BlinkMacSystemFont,
+            "Segoe UI",
+            Roboto,
+            Oxygen,
+            Ubuntu,
+            Cantarell,
+            "Open Sans",
+            "Helvetica Neue",
+            sans-serif;
+        .volaryss__main {
+            padding-top: 10rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+
+        .volaryss__subtitle {
+            background-color: #d5f0fc;
+            border-radius: 1rem;
+            padding: 0.5rem 1rem;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--color-black);
+        }
+        .volaryss__title {
+            font-weight: 900;
+            font-family: "Roboto Variable";
+            font-size: clamp(3rem, 5vw, 4rem);
+            line-height: 4rem;
+            text-align: center;
+            max-width: 800px;
+            margin-top: 2rem;
+            color: var(--color-black);
+
+            .volaryss__title--highlight {
+                color: #59c2f4;
+            }
+        }
+        .volaryss__description {
+            color: var(--text);
+            max-width: 700px;
+            text-align: center;
+            text-wrap: pretty;
+            font-size: 1.2rem;
+        }
+
+        .volaryss__actions {
+            .volaryss__button {
+                border: none;
+                padding: var(--padding-button);
+                background: var(--primary);
+                border-radius: var(--border-rd-bt);
+                color: #fff;
+                font-weight: 600;
+                font-size: 13px;
+
+                &:hover {
+                    background: var(--hover-button);
+                }
+            }
+        }
+        .volaryss__decoration {
+            position: absolute;
+            right: -1rem;
+            animation: slideDown 1.2s ease-out infinite alternate;
+        }
+
+        .volaryss__decoration-1 {
+            position: absolute;
+            bottom: 0;
+            left: -1rem;
+            animation: slideDown 1.2s ease-out infinite alternate;
+        }
+    }
+    @keyframes slideDown {
+        from {
+            transform: translateY(0);
+        }
+        to {
+            transform: translateY(-8px);
+        }
+    }
+</style>

@@ -1,0 +1,72 @@
+---
+import Card from "./Card.astro";
+import cloudIcon from "../assets/cloud.svg";
+import securityIcon from "../assets/security.svg";
+import velocityIcon from "../assets/velocity.svg";
+import formatIcon from "../assets/format.svg";
+const featuresCardContent = [
+    {
+        title: "Sincronización",
+        subtitle: "Local y nube integrados",
+        description:
+            "La plataforma permite trabajar completamente en local sin depender de servicios en la nube como AWS, GCP o Azure. Sin embargo, si detecta que el entorno local y una nube están habilitados, ofrecerá la opción de sincronizar ambos. Cuando se suba un archivo y exista una nube conectada, el usuario podrá decidir si guardarlo en local o en la nube. La seguridad de las cuentas en la nube depende del usuario, quien proporciona sus propias API keys y credenciales.",
+        icon: cloudIcon,
+    },
+    {
+        title: "Seguridad",
+        subtitle: "Cifrado de extremo a extremo",
+        description:
+            "Todos los archivos se procesan con cifrado de extremo a extremo, tanto en local como durante cualquier transferencia hacia la nube. Esto garantiza que los contenidos viajan protegidos en todo momento y que únicamente el usuario tiene acceso real a su información.",
+        icon: securityIcon,
+    },
+    {
+        title: "Velocidad",
+        subtitle: "Conversión instantánea",
+        description:
+            "El sistema está optimizado para convertir archivos de manera inmediata, sin procesos intermedios innecesarios. Esto permite obtener resultados en segundos incluso para formatos pesados o complejos.",
+        icon: velocityIcon,
+    },
+    {
+        title: "Formatos",
+        subtitle: "Convierte cualquier archivo",
+        description:
+            "La herramienta permite convertir archivos de una amplia variedad de formatos de forma rápida, segura y totalmente transparente. Los archivos del usuario son efímeros para la plataforma; no se almacenan ni se utilizan para ningún fin distinto a la conversión. El objetivo es que el usuario tenga la mejor experiencia posible, combinando rapidez, privacidad y confiabilidad.",
+        icon: formatIcon,
+    },
+];
+---
+
+<section>
+    <div class="features__list">
+        {
+            featuresCardContent.map((f) => (
+                <Card
+                    icon={f.icon}
+                    title={f.title}
+                    subtitle={f.subtitle}
+                    subscription={f.description}
+                />
+            ))
+        }
+    </div>
+</section>
+
+<style>
+    .features__list {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding-inline: 1rem;
+        width: 100%;
+        padding-top: 15rem;
+        display: grid;
+        gap: 1.5rem;
+        grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    }
+
+    @supports (animation-timeline: scroll()) {
+        body {
+            scroll-timeline-name: pageScroll;
+            scroll-timeline-axis: block;
+        }
+    }
+</style>
