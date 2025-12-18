@@ -1,13 +1,13 @@
 ---
 import type { SvgComponent } from "astro/types";
+
 interface Props {
     title: string;
-    subtitle: string;
     subscription?: string;
     icon: SvgComponent & ImageMetadata;
 }
 
-const { title, subtitle, subscription, icon } = Astro.props;
+const { title, subscription, icon } = Astro.props;
 import { Image } from "astro:assets";
 ---
 
@@ -15,25 +15,21 @@ import { Image } from "astro:assets";
     <header class="volaryss-card__header">
         <Image src={icon} alt="Card icon" class="volaryss-card__icon" />
         <h3 class="volaryss-card__title">{title}</h3>
-        <span class="volaryss-card__subtitle">{subtitle}</span>
     </header>
-    <!-- <main class="volaryss-card__main">
+    <main class="volaryss-card__main">
         <p class="volaryss-card__description">{subscription}</p>
-    </main> -->
+    </main>
 </article>
 
 <style>
     .volaryss-card {
         border: 1px solid var(--border-color);
-        max-width: 17rem;
+        max-width: 30rem;
         padding: 1rem;
 
         border-radius: 1rem;
         background: #fff;
         color: var(--color-black);
-        position: relative;
-        overflow: hidden;
-        opacity: 0;
 
         transition:
             transform 0.2s ease-in-out,
@@ -48,31 +44,11 @@ import { Image } from "astro:assets";
         .volaryss-card__title {
             font-weight: 600;
         }
-        .volaryss-card__subtitle {
-            color: var(--text);
-        }
 
         &:hover {
             transform: scale(1.01);
             box-shadow: 0 2px 10px 0 rgba(60, 60, 60, 0.15);
         }
-
-        /*.volaryss-card__description {
-            opacity: 0;
-            max-height: 0;
-            overflow: hidden;
-            transition:
-                opacity 0.3s ease,
-                max-height 0.3s ease;
-
-            color: var(--color-black);
-            text-wrap: pretty;
-        }
-
-        &:hover .volaryss-card__description {
-            opacity: 1;
-            max-height: 30rem;
-        }*/
 
         transform: translateX(-60px);
         /** Scroll animation */

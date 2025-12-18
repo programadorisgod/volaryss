@@ -1,15 +1,15 @@
 ---
 import { Image } from "astro:assets";
-import fileAndFolderIcon from "../assets/files-and-folder.svg";
-import dataStorageIcon from "../assets/data-storage.svg";
+import fileAndFolderIcon from "@/assets/files-and-folder.svg";
+import dataStorageIcon from "@/assets/data-storage.svg";
 
-import Features from "./Features.astro";
-import FileConversion from "./File-Conversion.astro";
-import Footer from "./Footer.astro";
+import Features from "@/components/Features.astro";
+import FileConversion from "@/components/File-Conversion.astro";
+import Footer from "@/components/Footer.astro";
 ---
 
-<main class="volaryss">
-    <section class="volaryss__main">
+<section class="volaryss__hero">
+    <div class="container volaryss__main">
         <span class="volaryss__subtitle">Tu bóveda digital segura</span>
 
         <h2 class="volaryss__title">
@@ -20,7 +20,7 @@ import Footer from "./Footer.astro";
 
         <p class="volaryss__description">
             Guarda tus archivos en local o en la nube, convierte formatos al
-            instante y accede desde cualquier lugar con total seguridad.
+            instante y accede con total seguridad.
         </p>
 
         <div class="volaryss__actions">
@@ -45,32 +45,25 @@ import Footer from "./Footer.astro";
                 height={150}
             />
         </div>
-    </section>
-    <Features />
-    <FileConversion />
-    <Footer />
-</main>
+    </div>
+</section>
+<Features />
+<FileConversion />
+<Footer />
 
 <style>
-    .volaryss {
+    .volaryss__hero {
         background: linear-gradient(#f1f7ff, #fff);
-        font-family:
-            "Poppins",
-            system-ui,
-            -apple-system,
-            BlinkMacSystemFont,
-            "Segoe UI",
-            Roboto,
-            Oxygen,
-            Ubuntu,
-            Cantarell,
-            "Open Sans",
-            "Helvetica Neue",
-            sans-serif;
-        .volaryss__main {
-            padding-top: 10rem;
+        min-height: calc(100dvh - 60px);
+        display: flex;
+        align-items: center;
+        .container {
             max-width: 1200px;
-            margin: 0 auto;
+            margin-inline: auto;
+        }
+
+        .volaryss__main {
+            width: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -80,19 +73,21 @@ import Footer from "./Footer.astro";
         .volaryss__subtitle {
             background-color: #d5f0fc;
             border-radius: 1rem;
-            padding: 0.5rem 1rem;
+            padding: 0.7rem 1.2rem;
             font-size: 14px;
             font-weight: 600;
             color: var(--color-black);
+            margin-bottom: 2rem;
         }
+
         .volaryss__title {
             font-weight: 900;
             font-family: "Roboto Variable";
-            font-size: clamp(3rem, 5vw, 4rem);
-            line-height: 4rem;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            line-height: 4.5rem;
             text-align: center;
             max-width: 800px;
-            margin-top: 2rem;
+            margin: 0;
             color: var(--color-black);
 
             .volaryss__title--highlight {
@@ -110,12 +105,14 @@ import Footer from "./Footer.astro";
         .volaryss__actions {
             .volaryss__button {
                 border: none;
-                padding: var(--padding-button);
+                padding: 1.1rem 2.5rem;
                 background: var(--primary);
                 border-radius: var(--border-rd-bt);
                 color: #fff;
                 font-weight: 600;
-                font-size: 13px;
+                font-size: 16px;
+                margin-top: 1rem;
+                cursor: pointer;
 
                 &:hover {
                     background: var(--hover-button);
@@ -141,6 +138,20 @@ import Footer from "./Footer.astro";
         }
         to {
             transform: translateY(-8px);
+        }
+    }
+
+    @media (width <= 480px) {
+        .volaryss__hero {
+            padding: 0 1rem;
+        }
+        .volaryss__description {
+            width: 100%;
+            text-wrap: wrap;
+        }
+        .volaryss__decoration,
+        .volaryss__decoration-1 {
+            display: none;
         }
     }
 </style>

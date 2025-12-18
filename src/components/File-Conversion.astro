@@ -1,38 +1,44 @@
 ---
-import convertImage from "../assets/convert.png";
+import convertImage from "@/assets/convert.png";
 import { Picture } from "astro:assets";
 ---
 
-<section class="volaryss-conversion">
-    <header class="volaryss-conversion__header">
-        <h3 class="volaryss-conversion__title">Conversión de Archivos</h3>
-        <p class="volaryss-conversion__description">
-            Convierte PDF a Word, JPEG a PNG, MP4 a WebM y mucho más sin perder
-            calidad. Soportamos 50+ formatos diferentes.
-        </p>
-    </header>
+<section class="volaryss-conversion" id="conversion">
+    <div class="container">
+        <header class="volaryss-conversion__header">
+            <h3 class="volaryss-conversion__title">Conversión de Archivos</h3>
+            <p class="volaryss-conversion__description">
+                Convierte PDF a Word, JPEG a PNG, MP4 a WebM y mucho más sin
+                perder calidad. Soportamos 50+ formatos diferentes.
+            </p>
+        </header>
 
-    <main class="volaryss-conversion__main">
-        <div class="volaryss-conversion__image-wrapper">
-            <Picture
-                src={convertImage}
-                alt="file conversion image"
-                formats={["webp", "jpeg"]}
-            />
-        </div>
-    </main>
+        <main class="volaryss-conversion__main">
+            <div class="volaryss-conversion__image-wrapper">
+                <Picture
+                    src={convertImage}
+                    alt="file conversion image"
+                    formats={["webp", "jpeg"]}
+                />
+            </div>
+        </main>
+    </div>
 </section>
 
 <style>
     .volaryss-conversion {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding-inline: 1rem;
+        min-height: 100dvh;
         width: 100%;
-        padding: 6rem;
         display: flex;
         flex-direction: column;
         align-items: center;
+        justify-content: center;
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-inline: 1rem;
+        }
 
         .volaryss-conversion__header {
             text-align: center;
@@ -52,6 +58,9 @@ import { Picture } from "astro:assets";
             border-radius: 1rem;
             & img {
                 border-radius: 1rem;
+                object-fit: contain;
+                width: 100%;
+                height: 100%;
             }
         }
     }
